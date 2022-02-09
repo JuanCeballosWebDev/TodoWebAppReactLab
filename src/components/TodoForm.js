@@ -3,15 +3,20 @@ import React, { useState } from "react";
 function TodoForm({ addTodo }) {
   const [value, setValue] = useState("");
 
-  const handleSubmit = (e) => {
+  const HandleSubmit = (e) => {
     e.preventDefault();
-    //if (!value) return;
-    //use the addTodo function
-    //clear value
+    if (value === "") {
+      return;
+  } else {
+      // using function (addTodo) passed as a prop
+      addTodo(value);
+      // after adding clear input value
+      setValue("");
+  }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={HandleSubmit}>
       <input
         type="text"
         className="input"

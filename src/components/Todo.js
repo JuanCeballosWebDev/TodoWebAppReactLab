@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Button.module.css"; 
 
 function Todo({ todo, completeTodo, removeTodo }) {
   return (
@@ -12,7 +13,7 @@ function Todo({ todo, completeTodo, removeTodo }) {
         <button onClick={() => completeTodo(todo.id)}>
           {todo.isCompleted ? "Not done" : "Done"}
         </button>
-        <button onClick={() => removeTodo(todo.id)}>x</button>
+        <button className = {styles.button} onClick={() => removeTodo(todo.id)}>x</button>
       </div>
     </div>
   );

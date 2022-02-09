@@ -25,17 +25,32 @@ function App() {
 
   const addTodo = (text) => {
     // add new todo to the todos array (id, text, isCompleted)
+    const newTodos = [
+      ...todos, // shallow copy of existing todo array (aka. Object.assign())
+      {
+        id: uuidv4(),
+        text: text,
+        isCompleted: false
+      }
+    ];
+    setTodos(newTodos);
     
   };
 
   const completeTodo = (index) => {
-  
-
+    const temporaryTodos = [...todos]; // shallow copy (aka. Object.assign())
+    const indexArray = temporaryTodos.findIndex((todo) => todo.id === index);
+    if (temporaryTodos[indexArray].isCompleted === false)
+      temporaryTodos[indexArray].isCompleted = true;
+    else
+      temporaryTodos[indexArray].isCompleted = false;
+    setTodos(temporaryTodos);
   };
 
   const removeTodo = (index) => {
-   
-
+    const temporaryTodos = [...todos]; // shallow copy (aka. Object.assign())
+    const newTemporaryTodos = temporaryTodos.filter(todo => todo.id !== index);
+    setTodos(newTemporaryTodos);
   };
 
   return (
