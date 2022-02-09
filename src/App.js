@@ -38,19 +38,11 @@ function App() {
   };
 
   const completeTodo = (index) => {
-    const temporaryTodos = [...todos]; // shallow copy (aka. Object.assign())
-    const indexArray = temporaryTodos.findIndex((todo) => todo.id === index);
-    if (temporaryTodos[indexArray].isCompleted === false)
-      temporaryTodos[indexArray].isCompleted = true;
-    else
-      temporaryTodos[indexArray].isCompleted = false;
-    setTodos(temporaryTodos);
+    
   };
 
   const removeTodo = (index) => {
-    const temporaryTodos = [...todos]; // shallow copy (aka. Object.assign())
-    const newTemporaryTodos = temporaryTodos.filter(todo => todo.id !== index);
-    setTodos(newTemporaryTodos);
+   
   };
 
   return (
